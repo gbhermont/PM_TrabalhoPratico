@@ -1,0 +1,115 @@
+.agendamento {
+    max-width: 760px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 24px rgba(20, 80, 122, 0.08);
+}
+
+.agendamento .cabecalho {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+.agendamento .categoria {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background: #e8eef3;
+    color: #14507a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.agendamento h1 {
+    margin-bottom: 8px;
+}
+
+.agendamento .cabecalho p {
+    margin: 0;
+    color: #596775;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.agendamento section + section {
+    margin-top: 24px;
+}
+
+.agendamento h2 {
+    margin: 0 0 18px;
+    padding-left: 10px;
+    border-left: 3px solid #14507a;
+    color: #14507a;
+}
+
+.agendamento .campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.agendamento label {
+    font-weight: bold;
+}
+
+.agendamento input,
+.agendamento select,
+.agendamento textarea {
+    margin-top: 8px;
+    padding: 11px;
+    background: #f9fbfc;
+    color: #222;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.agendamento textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.agendamento input:focus,
+.agendamento select:focus,
+.agendamento textarea:focus {
+    outline: 2px solid #14507a;
+    outline-offset: 2px;
+    background: #fff;
+}
+
+.agendamento .acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #d5dbe1;
+}
+
+.agendamento button {
+    padding: 12px 20px;
+}
+
+.agendamento button:focus-visible {
+    outline: 2px solid #14507a;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .agendamento {
+        padding: 20px;
+    }
+
+    .agendamento .campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .agendamento .acoes {
+        flex-direction: column;
+    }
+
+    .agendamento button {
+        width: 100%;
+    }
+}

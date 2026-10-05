@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Consulta</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/agendamento-consulta.css">
+</head>
+<body>
+    <main class="pagina agendamento">
+        <a class="voltar" href="../index.html">← Voltar ao menu</a>
+
+        <header class="cabecalho">
+            <span class="categoria">Sistema Hospitalar</span>
+            <h1>Agendamento de Consulta</h1>
+            <p>Preencha as informações para agendar um atendimento.</p>
+        </header>
+
+        <form>
+            <section>
+                <h2>Dados do atendimento</h2>
+
+                <label for="paciente">
+                    Paciente
+                    <select id="paciente" name="paciente">
+                        <option value="">Selecione o paciente</option>
+                        <option value="1">Ana Souza</option>
+                    </select>
+                </label>
+
+                <div class="campos">
+                    <label for="especialidade">
+                        Especialidade
+                        <select id="especialidade" name="especialidade">
+                            <option value="">Selecione</option>
+                            <option>Clínica geral</option>
+                            <option>Cardiologia</option>
+                        </select>
+                    </label>
+
+                    <label for="profissional">
+                        Profissional responsável
+                        <select id="profissional" name="profissional">
+                            <option value="">Selecione</option>
+                            <option value="1">Dra. Mariana Costa</option>
+                            <option value="2">Dr. Pedro Lima</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="campos">
+                    <label for="data">
+                        Data da consulta
+                        <input type="date" id="data" name="data">
+                    </label>
+
+                    <label for="horario">
+                        Horário
+                        <input type="time" id="horario" name="horario">
+                    </label>
+                </div>
+            </section>
+
+            <section>
+                <h2>Informações adicionais</h2>
+
+                <label for="motivo">
+                    Motivo da consulta
+                    <input
+                        type="text"
+                        id="motivo"
+                        name="motivo"
+                        placeholder="Ex.: consulta de rotina"
+                    >
+                </label>
+
+                <label for="observacoes">
+                    Observações
+                    <textarea
+                        id="observacoes"
+                        name="observacoes"
+                        rows="4"
+                        placeholder="Informe detalhes sobre o atendimento"
+                    ></textarea>
+                </label>
+            </section>
+
+            <footer class="acoes">
+                <button class="cancelar" type="button">Cancelar</button>
+                <button type="button">Agendar consulta</button>
+            </footer>
+        </form>
+    </main>
+</body>
+</html>

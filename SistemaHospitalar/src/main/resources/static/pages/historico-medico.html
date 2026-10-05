@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico Médico</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/historico-medico.css">
+</head>
+<body>
+    <main class="pagina historico">
+        <a class="voltar" href="../index.html">← Voltar ao menu</a>
+
+        <header class="cabecalho">
+            <span class="categoria">Sistema Hospitalar</span>
+            <h1>Histórico Médico</h1>
+            <p>Consulte os atendimentos e as informações do paciente.</p>
+        </header>
+
+        <form class="busca">
+            <label for="paciente">
+                Paciente
+                <select id="paciente" name="paciente">
+                    <option value="1">Ana Souza</option>
+                </select>
+            </label>
+
+            <button type="button">Consultar histórico</button>
+        </form>
+
+        <p class="aviso">Dados fictícios para demonstração.</p>
+
+        <section class="dados-paciente">
+            <h2>Dados do paciente</h2>
+
+            <dl class="dados">
+                <div>
+                    <dt>Nome</dt>
+                    <dd>Ana Souza</dd>
+                </div>
+                <div>
+                    <dt>Data de nascimento</dt>
+                    <dd>15/03/1998</dd>
+                </div>
+                <div>
+                    <dt>Alergias</dt>
+                    <dd>Nenhuma relatada</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="secao">
+            <h2>Consultas realizadas</h2>
+
+            <div class="tabela" tabindex="0"
+                 role="region" aria-label="Consultas realizadas">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Profissional</th>
+                            <th scope="col">Especialidade</th>
+                            <th scope="col">Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20/08/2026</td>
+                            <td>Dra. Mariana Costa</td>
+                            <td>Clínica geral</td>
+                            <td>Consulta de rotina e solicitação de exames.</td>
+                        </tr>
+                        <tr>
+                            <td>10/09/2026</td>
+                            <td>Dr. Pedro Lima</td>
+                            <td>Cardiologia</td>
+                            <td>Avaliação dos exames e acompanhamento.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Internações realizadas</h2>
+
+            <div class="tabela" tabindex="0"
+                 role="region" aria-label="Internações realizadas">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Entrada</th>
+                            <th scope="col">Alta</th>
+                            <th scope="col">Quarto</th>
+                            <th scope="col">Motivo</th>
+                            <th scope="col">Responsável</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>05/07/2026</td>
+                            <td>07/07/2026</td>
+                            <td>102</td>
+                            <td>Observação clínica</td>
+                            <td>Dra. Mariana Costa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Informações relevantes dos atendimentos</h2>
+
+            <article class="registro">
+                <time datetime="2026-09-10">10/09/2026</time>
+                <h3>Dr. Pedro Lima</h3>
+                <p>
+                    Exames apresentados foram anexados ao prontuário.
+                    Retorno indicado para acompanhamento.
+                </p>
+            </article>
+
+            <article class="registro">
+                <time datetime="2026-08-20">20/08/2026</time>
+                <h3>Dra. Mariana Costa</h3>
+                <p>
+                    Paciente relata não utilizar medicamentos contínuos.
+                    Informações registradas durante a consulta.
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

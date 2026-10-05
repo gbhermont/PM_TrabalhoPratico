@@ -1,0 +1,169 @@
+.historico {
+    max-width: 960px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 24px rgba(20, 80, 122, 0.08);
+}
+
+.historico .cabecalho {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+.historico .categoria {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background: #e8eef3;
+    color: #14507a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.historico h1 {
+    margin-bottom: 8px;
+}
+
+.historico .cabecalho p {
+    margin: 0;
+    color: #596775;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.historico .busca {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.historico .busca label {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.historico select {
+    margin-top: 8px;
+    padding: 11px;
+    background: #f9fbfc;
+    color: #222;
+}
+
+.historico .busca button {
+    padding: 12px 18px;
+}
+
+.historico .aviso {
+    margin: 12px 0 24px;
+    color: #596775;
+    font-size: 12px;
+}
+
+.historico .dados-paciente {
+    padding: 20px;
+    background: #e8eef3;
+    border: 1px solid #d5dbe1;
+    border-radius: 6px;
+}
+
+.historico h2 {
+    margin: 0 0 16px;
+    color: #14507a;
+}
+
+.historico .dados {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+}
+
+.historico dt {
+    margin-bottom: 6px;
+    color: #596775;
+    font-size: 12px;
+}
+
+.historico dd {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.historico .secao {
+    margin-top: 28px;
+}
+
+.historico .tabela {
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+.historico table {
+    min-width: 620px;
+}
+
+.historico th,
+.historico td {
+    padding: 12px;
+    line-height: 1.5;
+}
+
+.historico th {
+    color: #14507a;
+}
+
+.historico tbody tr:nth-child(even) {
+    background: #f9fbfc;
+}
+
+.historico .registro {
+    margin-bottom: 12px;
+    padding: 16px;
+    border: 1px solid #d5dbe1;
+    border-left: 4px solid #14507a;
+    border-radius: 4px;
+    background: #f9fbfc;
+}
+
+.historico .registro time {
+    color: #596775;
+    font-size: 12px;
+}
+
+.historico .registro h3 {
+    margin: 8px 0;
+    color: #14507a;
+    font-size: 14px;
+}
+
+.historico .registro p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.historico select:focus,
+.historico button:focus-visible,
+.historico .tabela:focus-visible {
+    outline: 2px solid #14507a;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .historico {
+        padding: 20px;
+    }
+
+    .historico .busca {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .historico .dados {
+        grid-template-columns: 1fr;
+    }
+}
