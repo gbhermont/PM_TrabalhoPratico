@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 30px 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f5f8;
+    color: #222;
+}
+
+.pagina {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    background: #fff;
+    border: 1px solid #d5dbe1;
+    border-radius: 8px;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #14507a;
+}
+
+h2 {
+    font-size: 17px;
+    margin: 24px 0 8px;
+}
+
+a.voltar {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #14507a;
+}
+
+label {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    padding: 8px;
+    border: 1px solid #b9c2cb;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 9px 18px;
+    border: 0;
+    border-radius: 4px;
+    background: #14507a;
+    color: #fff;
+    font-size: 14px;
+}
+
+button.cancelar {
+    background: #8a949e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #d5dbe1;
+    text-align: left;
+}
+
+th {
+    background: #e8eef3;
+}
+
+ul.menu {
+    padding: 0;
+    list-style: none;
+}
+
+ul.menu li {
+    margin-bottom: 10px;
+}
+
+ul.menu a {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid #b9c2cb;
+    border-radius: 4px;
+    color: #14507a;
+    text-decoration: none;
+}
