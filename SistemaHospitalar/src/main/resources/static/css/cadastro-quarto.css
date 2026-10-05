@@ -1,0 +1,103 @@
+.cadastro-quarto {
+    max-width: 640px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 24px rgba(20, 80, 122, 0.08);
+}
+
+.cadastro-quarto .cabecalho {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+.cadastro-quarto .categoria {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background: #e8eef3;
+    color: #14507a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cadastro-quarto h1 {
+    margin-bottom: 8px;
+}
+
+.cadastro-quarto .cabecalho p {
+    margin: 0;
+    color: #596775;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.cadastro-quarto .campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.cadastro-quarto label {
+    font-weight: bold;
+}
+
+.cadastro-quarto input,
+.cadastro-quarto select {
+    margin-top: 8px;
+    padding: 11px;
+    background: #f9fbfc;
+    color: #222;
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.cadastro-quarto input:focus,
+.cadastro-quarto select:focus {
+    outline: 2px solid #14507a;
+    outline-offset: 2px;
+    border-color: #14507a;
+    background: #fff;
+}
+
+.cadastro-quarto .acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #d5dbe1;
+}
+
+.cadastro-quarto button {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.cadastro-quarto button:hover {
+    opacity: 0.92;
+}
+
+.cadastro-quarto button:focus-visible {
+    outline: 2px solid #14507a;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .cadastro-quarto {
+        padding: 20px;
+    }
+
+    .cadastro-quarto .campos {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .cadastro-quarto .acoes {
+        flex-direction: column;
+    }
+
+    .cadastro-quarto button {
+        width: 100%;
+    }
+}

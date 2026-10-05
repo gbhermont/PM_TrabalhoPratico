@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Cadastro de Quarto
+  </title>
+  <link href="../css/styles.css" rel="stylesheet"/>
+  <link href="../css/cadastro-quarto.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="pagina cadastro-quarto">
+   <a class="voltar" href="../index.html">
+    ← Voltar ao menu
+   </a>
+   <div class="cabecalho">
+    <span class="categoria">
+     Infraestrutura
+    </span>
+    <h1>
+     Cadastro de Quarto
+    </h1>
+    <p>
+     Registre os quartos disponíveis na unidade hospitalar e mantenha a
+     situação de ocupação sempre atualizada.
+    </p>
+   </div>
+   <form>
+    <div class="campos">
+     <label>
+      Número de identificação
+      <input placeholder="Ex.: 101" type="number"/>
+     </label>
+     <label>
+      Andar
+      <input placeholder="Ex.: 1" type="number"/>
+     </label>
+     <label>
+      Capacidade máxima de pacientes
+      <input placeholder="Ex.: 2" type="number"/>
+     </label>
+     <label>
+      Situação atual
+      <select>
+       <option>
+        Disponível
+       </option>
+       <option>
+        Ocupado
+       </option>
+      </select>
+     </label>
+    </div>
+    <div class="acoes">
+     <button class="cancelar" type="button">
+      Cancelar
+     </button>
+     <button type="button">
+      Salvar
+     </button>
+    </div>
+   </form>
+  </div>
+ </body>
+</html>
