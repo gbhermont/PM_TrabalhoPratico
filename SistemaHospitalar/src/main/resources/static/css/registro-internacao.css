@@ -1,0 +1,65 @@
+
+.registro {
+    box-shadow: 0 6px 24px rgba(20, 80, 122, 0.08);
+}
+
+.registro h1 {
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d5dbe1;
+}
+
+
+.registro form label {
+    font-weight: bold;
+    color: #596775;
+}
+
+
+.registro input,
+.registro select,
+.registro textarea {
+    background: #f9fbfc;
+}
+
+.registro textarea {
+    resize: vertical;
+    min-height: 72px;
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+
+.registro .acoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.registro .acoes button {
+    cursor: pointer;
+}
+
+.registro .acoes button:hover {
+    opacity: 0.92;
+}
+
+
+.registro input:focus,
+.registro select:focus,
+.registro textarea:focus,
+.registro .acoes button:focus-visible {
+    outline: 2px solid #14507a;
+    outline-offset: 2px;
+    border-color: #14507a;
+}
+
+@media (max-width: 600px) {
+    .registro .acoes {
+        flex-direction: column;
+    }
+
+    .registro .acoes button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Registro de Internação
+  </title>
+  <link href="../css/styles.css" rel="stylesheet"/>
+  <link href="../css/registro-internacao.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="pagina registro">
+   <a class="voltar" href="../index.html">
+    ← Voltar ao menu
+   </a>
+   <h1>
+    Registro de Internação
+   </h1>
+   <form>
+    <label>
+     Paciente
+     <select>
+      <option>
+       Selecione o paciente
+      </option>
+     </select>
+    </label>
+    <label>
+     Profissional responsável
+     <select>
+      <option>
+       Selecione o profissional
+      </option>
+     </select>
+    </label>
+    <label>
+     Quarto
+     <select>
+      <option>
+       Selecione o quarto
+      </option>
+     </select>
+    </label>
+    <label>
+     Data de entrada
+     <input placeholder="" type="date"/>
+    </label>
+    <label>
+     Data prevista de alta
+     <input placeholder="" type="date"/>
+    </label>
+    <label>
+     Data efetiva de alta
+     <input placeholder="" type="date"/>
+    </label>
+    <label>
+     Observações
+     <textarea placeholder="" rows="3"></textarea>
+    </label>
+    <div class="acoes">
+     <button type="button">
+      Internar
+     </button>
+     <button class="cancelar" type="button">
+      Cancelar
+     </button>
+    </div>
+   </form>
+  </div>
+ </body>
+</html>
