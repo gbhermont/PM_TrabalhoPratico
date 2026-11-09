@@ -5,7 +5,7 @@ package com.example.SistemaHospitalar.model.enums;
  * <pre>
  * AGENDADA       -> CONFIRMADA | CANCELADA | NAO_COMPARECEU
  * CONFIRMADA     -> EM_ATENDIMENTO | CANCELADA | NAO_COMPARECEU
- * EM_ATENDIMENTO -> CONCLUIDA
+ * EM_ATENDIMENTO -> CONCLUIDA | CANCELADA
  * CONCLUIDA, CANCELADA, NAO_COMPARECEU -> (situações finais)
  * </pre>
  */
@@ -31,7 +31,7 @@ public enum SituacaoConsulta {
 		return switch (this) {
 			case AGENDADA -> nova == CONFIRMADA || nova == CANCELADA || nova == NAO_COMPARECEU;
 			case CONFIRMADA -> nova == EM_ATENDIMENTO || nova == CANCELADA || nova == NAO_COMPARECEU;
-			case EM_ATENDIMENTO -> nova == CONCLUIDA;
+			case EM_ATENDIMENTO -> nova == CONCLUIDA || nova == CANCELADA;
 			case CONCLUIDA, CANCELADA, NAO_COMPARECEU -> false;
 		};
 	}
