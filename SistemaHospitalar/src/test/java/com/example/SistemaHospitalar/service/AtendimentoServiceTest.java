@@ -291,7 +291,8 @@ class AtendimentoServiceTest {
 	@Test
 	void filtraPorPacienteEProfissional() throws Exception {
 		umDeCadaTipo();
-		when(atendimentoRepository.listarPorPaciente(paciente)).thenReturn(atendimentoRepository.listarTodos());
+		List<Atendimento> todos = atendimentoRepository.listarTodos();
+		when(atendimentoRepository.listarPorPaciente(paciente)).thenReturn(todos);
 
 		assertThat(service.listar(null, 1L, null, null)).hasSize(4);
 		assertThat(service.listar(null, 1L, 3L, null)).extracting(AtendimentoResponse::id).containsExactly(2L);

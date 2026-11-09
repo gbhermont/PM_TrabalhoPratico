@@ -1,0 +1,181 @@
+@startuml DiagramaDeClasses
+' Formato escolhido: PlantUML (texto). O diagrama original da Sprint 1 era um PDF
+' (imagem); como a tarefa permite, a versao atualizada e mantida como texto versionavel.
+title Sistema Hospitalar - Diagrama de Classes (Sprint 2)
+
+skinparam classAttributeIconSize 0
+hide empty members
+
+' ===================== Atendimentos =====================
+abstract class Atendimento {
+  -id : Long
+  -paciente : Paciente
+  -profissional : ProfissionalSaude
+  -data : LocalDate
+  -horario : LocalTime
+  -motivo : String
+  +{abstract} validar() : void
+  +{abstract} estaAtivo() : boolean
+  #registrar() : void
+}
+
+abstract class Consulta {
+  -situacao : SituacaoConsulta
+  -observacoesMedicas : String
+  +alterarSituacao(nova) : void
+  +confirmar() / iniciarAtendimento() / concluir() : void
+  +cancelar() / registrarNaoComparecimento() : void
+  +registrarObservacoes(texto) : void
+}
+
+class ConsultaRotina {
+  +validar() : void
+}
+
+class ConsultaEspecializada {
+  -especialidade : Especialidade
+  +validar() : void
+}
+
+class AtendimentoEmergencia {
+  -prioridade : Prioridade
+  -status : StatusEmergencia
+  +iniciar(medico) / concluir() : void
+  +reclassificar(nova) : void
+  +aguardandoAvaliacao() / foiIniciado() / foiConcluido() : boolean
+}
+
+class ProcedimentoCirurgico {
+  -tipoCirurgia : TipoCirurgia
+  -status : StatusProcedimento
+  -dataEfetiva : LocalDate
+  -horarioEfetivo : LocalTime
+  -obsPreOperatorias : String
+  -obsPosOperatorias : String
+  +iniciar(data,horario) / concluir() / cancelar() : void
+}
+
+Atendimento <|-- Consulta
+Consulta <|-- ConsultaRotina
+Consulta <|-- ConsultaEspecializada
+Atendimento <|-- AtendimentoEmergencia
+Atendimento <|-- ProcedimentoCirurgico
+
+' ===================== Profissionais =====================
+abstract class ProfissionalSaude {
+  -id : Long
+  -nome : String
+  -registroProfissional : String
+  -telefone : String
+  -email : String
+  +{abstract} getCategoria() : CategoriaProfissional
+  +{abstract} getEspecialidade() : Especialidade
+  +estaDisponivel(data,horario) : boolean
+}
+
+class ClinicoGeral {
+  +encaminhar(paciente,destino,data,horario,motivo) : ConsultaEspecializada
+}
+
+class Especialista {
+  -especialidade : Especialidade
+}
+
+class Cirurgiao {
+  -areaCirurgica : Especialidade
+  +registrarProcedimento(data,paciente,descricao) : void
+}
+
+class RegistroProcedimento <<record>> {
+  +data : LocalDate
+  +paciente : Paciente
+  +descricao : String
+}
+
+ProfissionalSaude <|-- ClinicoGeral
+ProfissionalSaude <|-- Especialista
+ProfissionalSaude <|-- Cirurgiao
+Cirurgiao "1" o-- "0..*" RegistroProcedimento : realizou >
+
+' ===================== Nucleo =====================
+class Paciente {
+  -id : Long
+  -nome : String
+  -cpf : String
+  -dataNascimento : LocalDate
+  -telefone / endereco / email : String
+  +getHistorico() : HistoricoMedico
+  +possuiInternacaoAtiva() : boolean
+}
+
+class HistoricoMedico {
+  +listarAtendimentos() : List<Atendimento>
+  +getInformacoesRelevantes() : List<String>
+}
+
+class Quarto {
+  -id : Long
+  -numero : int
+  -andar : int
+  -capacidadeMaxima : int
+  -vagasOcupadas : int
+  -tipo : TipoQuarto
+  +temVaga() / ocuparVaga() / liberarVaga() : void
+  +getSituacao() : SituacaoQuarto
+}
+
+class Internacao {
+  -id : Long
+  -dataEntrada : LocalDate
+  -dataPrevistaAlta : LocalDate
+  -dataEfetivaAlta : LocalDate
+  -observacoes : String
+  +registrarAlta(data) : void
+  +estaAtiva() : boolean
+}
+
+Paciente "1" o-- "0..*" Atendimento : possui >
+Paciente "1" o-- "0..*" Internacao : possui >
+Paciente "1" -- "1" HistoricoMedico : gera >
+Atendimento "0..*" --> "1" Paciente
+Atendimento "0..*" --> "0..1" ProfissionalSaude
+Internacao "0..*" --> "1" Paciente
+Internacao "0..*" --> "1" ProfissionalSaude
+Internacao "0..*" --> "1" Quarto
+
+' ===================== Enums =====================
+enum SituacaoConsulta { AGENDADA\nCONFIRMADA\nEM_ATENDIMENTO\nCONCLUIDA\nCANCELADA\nNAO_COMPARECEU }
+enum StatusProcedimento { AGENDADO\nEM_ANDAMENTO\nCONCLUIDO\nCANCELADO }
+enum StatusEmergencia { AGUARDANDO_AVALIACAO\nEM_ATENDIMENTO\nCONCLUIDO }
+enum Prioridade { BAIXA\nMODERADA\nALTA\nCRITICA }
+enum TipoCirurgia { ELETIVA\nURGENTE\nEMERGENCIAL }
+enum CategoriaProfissional { CLINICO_GERAL\nESPECIALISTA\nCIRURGIAO }
+enum Especialidade { CLINICA_GERAL\nCARDIOLOGIA\nNEUROLOGIA\n... }
+enum TipoQuarto { INDIVIDUAL\nENFERMARIA\nUTI\nISOLAMENTO }
+enum SituacaoQuarto { DISPONIVEL\nOCUPADO }
+
+Consulta ..> SituacaoConsulta
+ProcedimentoCirurgico ..> StatusProcedimento
+ProcedimentoCirurgico ..> TipoCirurgia
+AtendimentoEmergencia ..> StatusEmergencia
+AtendimentoEmergencia ..> Prioridade
+ConsultaEspecializada ..> Especialidade
+ProfissionalSaude ..> CategoriaProfissional
+ProfissionalSaude ..> Especialidade
+Quarto ..> TipoQuarto
+Quarto ..> SituacaoQuarto
+
+' ===================== Apoio =====================
+class Validacoes <<utility>> {
+  +{static} exigirNaoNulo / exigirTexto / textoOpcional / emailOpcional
+}
+class RegraDeNegocioException <<exception>>
+
+Validacoes ..> RegraDeNegocioException : lanca >
+Atendimento ..> Validacoes
+Paciente ..> Validacoes
+Quarto ..> Validacoes
+Internacao ..> Validacoes
+ProfissionalSaude ..> Validacoes
+
+@enduml
